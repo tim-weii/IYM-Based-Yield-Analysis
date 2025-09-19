@@ -1,4 +1,4 @@
-#  Intelligent Yield Management (IYM) — Key-Variable Search for Yield Loss Analysis  
+<img width="1346" height="809" alt="image" src="https://github.com/user-attachments/assets/f4bc7b8a-27d3-4874-8f69-4188ca8c757b" />#  Intelligent Yield Management (IYM) — Key-Variable Search for Yield Loss Analysis  
 
 ##  Background  
 In advanced manufacturing, **yield directly impacts cost and competitiveness**.  
@@ -51,16 +51,22 @@ The **KSA scheme** combines greedy search and sparse regression to identify crit
 
 ---
 
-##  Case Study: TFT-LCD Coating Defects (2023)  
+### Case Study: Paper Coating Defects (2023)
 
-- **Data size:** 789 process variables, 28 samples (typical p ≫ n problem).  
-- **Phase I Result:** Identified a specific coating chamber as suspicious.  
-- **Phase II Result:** Highlighted *Control Voltage* as a root-cause parameter.  
-- **RIK = 0.932 (>0.7):** Strong reliability score.  
+After a series of data preprocessing, statistical testing (e.g., t-test), and applying the IYM framework with the **Key-Variable Search Algorithm (KSA)**, we were able to pinpoint suspicious variables that differentiate **Normal** from **Abnormal** coating results.
 
- **Outcome:** Provided actionable ranges (e.g., speed 1.15–1.25 m/s, viscosity 25–28 s), reducing coating defects.  
+The figure below illustrates one sample case.  
+- **Blue curve (Normal data)** shows the expected process trend over time.  
+- **Red curve (Abnormal data)** highlights the detected anomaly.  
+- The abnormal segment deviates significantly from the normal trend, confirming the **root-cause signal** that contributes to coating defects.  
 
----
+<p align="center">
+<img width="720" alt="case_abnormal_detection" src="https://github.com/user-attachments/assets/your_image_id_here" />
+</p>
+<p align="center">Fig. X. Example of Normal vs. Abnormal data after IYM + KSA analysis. The abnormal segment (red) is clearly separated and identified as problematic.</p>
+
+This demonstrates that the IYM + KSA approach not only narrows down the **critical sensors/variables** but also provides **visual evidence** of where abnormalities occur, enabling engineers to take corrective actions in production.
+
 
 ##  Contributions  
 
@@ -81,6 +87,64 @@ The **KSA scheme** combines greedy search and sparse regression to identify crit
 | Reliability       | Not quantified              | RIK > 0.7 confidence scoring   |
 
 ---
+
+## 📊 Case Study: Coating Defects in Paper Manufacturing (2023)
+
+In this case study, we analyze **coating defects** in the paper manufacturing process.  
+Customer complaints showed a surge in coating-related issues in **2023 (5 cases)** compared to only **1 case in 2022**.  
+To investigate, we applied **Intelligent Yield Management (IYM)** with both **exploratory data analysis** and **statistical testing**.
+
+---
+
+### 1) Exploratory Data Analysis (EDA)
+Production data was divided into **Normal (good)** and **Abnormal (defective)** groups.  
+Scatter plots, histograms with KDE, and boxplots were used to visualize differences.
+
+📷 **[Fig.1] Scatter / Histogram / Boxplot of Normal vs Abnormal Data**
+
+- Scatter plot: Values overlap heavily but some deviations are visible.  
+- Histogram: Abnormal data shows tighter clustering / shifts in distribution.  
+- Boxplot: Abnormal group median differs noticeably from Normal.  
+
+---
+
+### 2) Statistical Testing (t-test)
+To validate observed differences, we applied **Student’s t-test** to each parameter.
+
+📋 **[Table 1] t-test results (parameters anonymized as XXX, YYY)**
+
+| col_name | statistic | p_value   | Significant (p<0.05) |
+|----------|-----------|-----------|-----------------------|
+| **XXX**  | 348.20    | 1.28E-77  | ✅ Yes |
+| **YYY**  | 2.02      | 0.154     | ❌ No  |
+
+**Interpretation**:  
+- **XXX** shows a highly significant difference (p ≈ 1.28E-77), strongly linked to coating defects.  
+- **YYY** shows no significant difference and can be excluded from further investigation.  
+
+---
+
+### 3) Findings
+- Pure visual inspection can be misleading — statistical validation ensures more reliable results.  
+- **XXX** is a strong candidate parameter for further engineering validation (e.g., coating pressure, viscosity, bake curve).  
+- **YYY** can be deprioritized, saving time and analysis resources.  
+
+---
+
+### 📌 Next Steps
+This case study demonstrates the **EDA + t-test workflow**.  
+In practice, IYM expands the analysis with:  
+1. **KSA (Key-variable Search Algorithm)**: Identifies suspicious stages and parameters under p≫n conditions.  
+2. **ALASSO (Adaptive LASSO)**: Selects critical variables with improved stability and interpretability.  
+3. **Additional Statistical Tests**: e.g., Kolmogorov-Smirnov, Mann-Whitney U test, Cliff’s δ for effect size.  
+
+---
+
+✅ **Workflow Summary**:  
+1. **Visualize differences** → Spot possible anomalies.  
+2. **Run statistical tests** → Confirm significant deviations.  
+3. **Identify key parameters** → Guide engineers to process root causes.
+
 
 ##  Repository Layout  
 
