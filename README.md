@@ -1,8 +1,10 @@
-<img width="1999" height="575" alt="image" src="https://github.com/user-attachments/assets/ce00c05e-8c36-40fc-a406-414350388435" />
+
 <img width="1633" height="703" alt="image" src="https://github.com/user-attachments/assets/b301caf0-9779-4a80-80de-b33e867b4ea4" />
 <img width="1858" height="1024" alt="image" src="https://github.com/user-attachments/assets/5eeda933-af05-4bbe-8982-5973fcff7816" />
 <img width="1346" height="809" alt="image" src="https://github.com/user-attachments/assets/f4bc7b8a-27d3-4874-8f69-4188ca8c757b" />
-
+<p align="center" style="background-color:white; display:inline-block; padding:10px;">
+  <img width="950" alt="paper_process_flow" src="https://github.com/user-attachments/assets/ce00c05e-8c36-40fc-a406-414350388435" />
+</p>
 #  Intelligent Yield Management (IYM) — Key-Variable Search for Yield Loss Analysis  
 
 ##  Background  
