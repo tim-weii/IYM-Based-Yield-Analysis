@@ -1,4 +1,9 @@
-<img width="1346" height="809" alt="image" src="https://github.com/user-attachments/assets/f4bc7b8a-27d3-4874-8f69-4188ca8c757b" />#  Intelligent Yield Management (IYM) — Key-Variable Search for Yield Loss Analysis  
+<img width="1999" height="575" alt="image" src="https://github.com/user-attachments/assets/ce00c05e-8c36-40fc-a406-414350388435" />
+<img width="1633" height="703" alt="image" src="https://github.com/user-attachments/assets/b301caf0-9779-4a80-80de-b33e867b4ea4" />
+<img width="1858" height="1024" alt="image" src="https://github.com/user-attachments/assets/5eeda933-af05-4bbe-8982-5973fcff7816" />
+<img width="1346" height="809" alt="image" src="https://github.com/user-attachments/assets/f4bc7b8a-27d3-4874-8f69-4188ca8c757b" />
+
+#  Intelligent Yield Management (IYM) — Key-Variable Search for Yield Loss Analysis  
 
 ##  Background  
 In advanced manufacturing, **yield directly impacts cost and competitiveness**.  
