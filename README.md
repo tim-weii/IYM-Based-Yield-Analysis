@@ -1,7 +1,7 @@
 #  Intelligent Yield Management (IYM) — Key-Variable Search for Yield Loss Analysis  
 
 ##  Background  
-In advanced manufacturing (semiconductors, TFT-LCD), **yield directly impacts cost and competitiveness**.  
+In advanced manufacturing, **yield directly impacts cost and competitiveness**.  
 Customer complaint records showed a **surge of coating defects in 2023** (5 cases) compared to only 1 case in 2022.  
 
 Traditional yield analysis relies on historical pattern matching, but under **high-dimensional conditions (p ≫ n)** — where process variables far outnumber available samples — these methods often fail to pinpoint the **true root causes**.  
