@@ -13,7 +13,6 @@ In advanced manufacturing, **yield directly affects cost and competitiveness**.
 **Figure 1.** Real application domain — the **papermaking process**, where yield loss analysis is conducted to identify and control key process variables.  
 
 ---
-<img width="1633" height="703" alt="螢幕擷取畫面 2025-09-19 144409" src="https://github.com/user-attachments/assets/5bec8003-2791-4fab-8db7-12da287cd90b" />
 
 Traditional yield analysis mainly relies on **historical pattern matching**.  
 However, under **high-dimensional conditions (p ≫ n)** — where process parameters far exceed available samples — such methods often fail to identify the **true root causes**.  
