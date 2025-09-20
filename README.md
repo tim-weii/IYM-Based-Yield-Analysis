@@ -21,10 +21,46 @@ To address this, we introduce **Intelligent Yield Management (IYM)** with the **
 
 ---
 
+## Case Study 
+
+In real manufacturing cases, **it is often difficult to visually distinguish process differences**.  
+The figure below shows one of the **most obvious cases**, yet even here the variations are subtle and cannot be reliably judged by the naked eye.  
+
+---
+
+<p align="center">
+<img width="1346" height="809" alt="image" src="https://github.com/user-attachments/assets/f4bc7b8a-27d3-4874-8f69-4188ca8c757b" />
+</p>
+
+**Figure 2.** Raw process data — subtle differences are nearly invisible to human eyes.  
+
+---
+
+To address this challenge, we applied **unsupervised clustering methods** to reveal hidden patterns in the data:  
+
+- **K-means Clustering & DBSCAN Clustering**  
+
+<p align="center">
+<img width="1746" height="756" alt="螢幕擷取畫面 2025-09-20 221608" src="https://github.com/user-attachments/assets/23a958b1-4029-4de0-9261-268d34ee0580" />
+</p>  
+
+**Figure 3 & 4.** Results of K-means and DBSCAN clustering.  
+
+## Limitations of K-means:
+Assumes spherical clusters and performs poorly on non-linear boundaries.
+Highly sensitive to initial centroid selection, often leading to local optima.
+Requires pre-defined number of clusters (k), which is unknown in high-dimensional process data.
+
+## Limitations of DBSCAN:
+Extremely sensitive to parameter settings (ε neighborhood size, minPts).
+Struggles with datasets of varying density, often misclassifying normal points as noise.
+In high-dimensional data, distance metrics become less meaningful (“curse of dimensionality”), leading to distorted clustering results.
+
+
 ### IYM in the iFA System  
 
 <p align="center" style="background-color:white; display:inline-block; padding:10px;">
-<img width="1633" height="703" alt="螢幕擷取畫面 2025-09-19 144409" src="https://github.com/user-attachments/assets/3bb9d97e-9c58-4a52-bd06-f73afb41bbb8" />
+  <img width="950" alt="iym_framework" src="https://github.com/user-attachments/assets/5eeda933-af05-4bbe-8982-5973fcff7816" />
 </p>
 
 **Figure 2.** The position of **Intelligent Yield Management (IYM)** within the **iFA system**.  
@@ -40,20 +76,18 @@ However, under **high-dimensional conditions (p ≫ n)** — where process param
 To address this, we introduce **Intelligent Yield Management (IYM)** with the **Key-Variable Search Algorithm (KSA)**.  
 
 <p align="center" style="background-color:white; display:inline-block; padding:10px;">
-  <img width="950" alt="iym_framework" src="https://github.com/user-attachments/assets/5eeda933-af05-4bbe-8982-5973fcff7816" />
+<img width="1633" height="703" alt="螢幕擷取畫面 2025-09-19 144409" src="https://github.com/user-attachments/assets/3bb9d97e-9c58-4a52-bd06-f73afb41bbb8" />
 </p>
+
 
 **Figure 3.** Workflow of IYM — applying the Key-Variable Search Algorithm (KSA) to identify critical parameters for yield loss analysis.  
 
 
 ---
 
-
-<img width="1346" height="809" alt="image" src="https://github.com/user-attachments/assets/f4bc7b8a-27d3-4874-8f69-4188ca8c757b" />
 <img width="1548" height="1008" alt="image" src="https://github.com/user-attachments/assets/b95c51b0-858e-48df-91e1-c004f650b032" />
 
 ##  Methodology (KSA Framework)  
-
 The **KSA scheme** combines greedy search and sparse regression to identify critical process variables:  
 
 1. **Data Preprocessing**  
@@ -61,12 +95,12 @@ The **KSA scheme** combines greedy search and sparse regression to identify crit
    - Normalize, clean, and organize batch/tool-level information.  
 
 2. **Key-Variable Search (KSA Module)**  
-   - **TPOGA (Triple-Phase Orthogonal Greedy Algorithm):** Fast variable selection to find correlated factors.  
-   - **ALASSO (Automated LASSO):** Adaptive sparse regression that selects root-cause parameters.  
+   - In our approach, **Short-Time Fourier Transform (STFT)** is first applied to transform time-series signals into the time–frequency domain, allowing us to capture dynamic process patterns.  
+   - Instead of directly relying on traditional variable selection algorithms (e.g., TPOGA, ALASSO), STFT-based features are extracted to highlight critical variations in process behavior that may contribute to yield loss.  
 
 3. **Reliance Index (RIK)**  
-   - Measures overlap between TPOGA and ALASSO results.  
-   - RIK > 0.7 = high confidence in identified parameters.  
+   - Measures the confidence of identified parameters/features.  
+   - RIK > 0.7 = high confidence in the extracted factors.  
 
 ---
 
