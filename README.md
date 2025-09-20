@@ -2,18 +2,25 @@
 #  Intelligent Yield Management (IYM) — Key-Variable Search for Yield Loss Analysis  
 
 ##  Background  
-In advanced manufacturing, **yield directly affects cost and competitiveness**.
+In advanced manufacturing, **yield directly affects cost and competitiveness**.  
+
+In advanced manufacturing, **yield directly affects cost and competitiveness**.  
+
 <p align="center" style="background-color:white; display:inline-block; padding:10px;">
   <img width="950" alt="paper_process_flow" src="https://github.com/user-attachments/assets/ce00c05e-8c36-40fc-a406-414350388435" />
 </p>
+
+The figure above illustrates our **real application domain — the papermaking process**, where yield loss analysis is conducted to identify and control key process variables.
+
+
 Traditional yield analysis mainly relies on historical pattern matching. However, under high-dimensional conditions (p ≫ n) — where process parameters far exceed available samples — such methods often fail to identify the true root causes.
 
 To address this, Intelligent Yield Management (IYM) with the Key-Variable Search Algorithm (KSA) is introduced.
-<img width="1346" height="809" alt="image" src="https://github.com/user-attachments/assets/f4bc7b8a-27d3-4874-8f69-4188ca8c757b" />
+<img width="1858" height="1024" alt="image" src="https://github.com/user-attachments/assets/5eeda933-af05-4bbe-8982-5973fcff7816" />
 
 ---
+<img width="1346" height="809" alt="image" src="https://github.com/user-attachments/assets/f4bc7b8a-27d3-4874-8f69-4188ca8c757b" />
 <img width="1548" height="1008" alt="image" src="https://github.com/user-attachments/assets/b95c51b0-858e-48df-91e1-c004f650b032" />
-<img width="1858" height="1024" alt="image" src="https://github.com/user-attachments/assets/5eeda933-af05-4bbe-8982-5973fcff7816" />
 
 ##  Methodology (KSA Framework)  
 
