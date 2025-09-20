@@ -29,10 +29,10 @@ The figure below shows one of the **most obvious cases**, yet even here the vari
 ---
 
 <p align="center">
-<img width="800" height="500" alt="image" src="https://github.com/user-attachments/assets/f4bc7b8a-27d3-4874-8f69-4188ca8c757b" />
+<img width="300" height="150" alt="image" src="https://github.com/user-attachments/assets/f4bc7b8a-27d3-4874-8f69-4188ca8c757b" />
 </p>
 
-**Figure 2.** Raw process data — subtle differences are nearly invisible to human eyes.  
+**Figure 2.** Raw process data — this example was deliberately selected as one of the clearest cases, with problematic regions highlighted in red. Even so, proper classification still requires algorithmic analysis rather than visual inspection alone.
 
 ---
 
