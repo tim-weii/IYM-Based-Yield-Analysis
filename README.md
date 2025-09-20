@@ -13,6 +13,7 @@ In advanced manufacturing, **yield directly affects cost and competitiveness**.
 **Figure 1.** Real application domain — the **papermaking process**, where yield loss analysis is conducted to identify and control key process variables.  
 
 ---
+<img width="1633" height="703" alt="螢幕擷取畫面 2025-09-19 144409" src="https://github.com/user-attachments/assets/5bec8003-2791-4fab-8db7-12da287cd90b" />
 
 Traditional yield analysis mainly relies on **historical pattern matching**.  
 However, under **high-dimensional conditions (p ≫ n)** — where process parameters far exceed available samples — such methods often fail to identify the **true root causes**.  
@@ -21,13 +22,34 @@ To address this, we introduce **Intelligent Yield Management (IYM)** with the **
 
 ---
 
+### IYM in the iFA System  
+
+<p align="center" style="background-color:white; display:inline-block; padding:10px;">
+<img width="1633" height="703" alt="螢幕擷取畫面 2025-09-19 144409" src="https://github.com/user-attachments/assets/3bb9d97e-9c58-4a52-bd06-f73afb41bbb8" />
+</p>
+
+**Figure 2.** The position of **Intelligent Yield Management (IYM)** within the **iFA system**.  
+IYM serves as a data-driven module that integrates with production information flows to focus on yield-related analysis.  
+
+---
+
+### What IYM Does  
+
+Traditional yield analysis mainly relies on **historical pattern matching**.  
+However, under **high-dimensional conditions (p ≫ n)** — where process parameters far exceed available samples — such methods often fail to identify the **true root causes**.  
+
+To address this, we introduce **Intelligent Yield Management (IYM)** with the **Key-Variable Search Algorithm (KSA)**.  
+
 <p align="center" style="background-color:white; display:inline-block; padding:10px;">
   <img width="950" alt="iym_framework" src="https://github.com/user-attachments/assets/5eeda933-af05-4bbe-8982-5973fcff7816" />
 </p>
 
-**Figure 2.** IYM framework with Key-Variable Search Algorithm (KSA).  
+**Figure 3.** Workflow of IYM — applying the Key-Variable Search Algorithm (KSA) to identify critical parameters for yield loss analysis.  
+
 
 ---
+
+
 <img width="1346" height="809" alt="image" src="https://github.com/user-attachments/assets/f4bc7b8a-27d3-4874-8f69-4188ca8c757b" />
 <img width="1548" height="1008" alt="image" src="https://github.com/user-attachments/assets/b95c51b0-858e-48df-91e1-c004f650b032" />
 
