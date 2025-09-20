@@ -17,7 +17,7 @@ In advanced manufacturing, **yield directly affects cost and competitiveness**.
 Traditional yield analysis mainly relies on **historical pattern matching**.  
 However, under **high-dimensional conditions (p ≫ n)** — where process parameters far exceed available samples — such methods often fail to identify the **true root causes**.  
 
-To address this, we introduce **Intelligent Yield Management (IYM)** with the **Key-Variable Search Algorithm (KSA)**.  
+To address this, I introduce **Intelligent Yield Management (IYM)** with the **Key-Variable Search Algorithm (KSA)**.  
 
 ---
 
@@ -37,7 +37,7 @@ The figure below shows one of the **most obvious cases**, yet even here the vari
 
 ---
 
-To address this challenge, we applied **unsupervised clustering methods** to reveal hidden patterns in the data:  
+To address this challenge, I applied **unsupervised clustering methods** to reveal hidden patterns in the data:  
 
 - **K-means Clustering & DBSCAN Clustering**  
 
@@ -74,7 +74,7 @@ IYM serves as a data-driven module that integrates with production information f
 Traditional yield analysis mainly relies on **historical pattern matching**.  
 However, under **high-dimensional conditions (p ≫ n)** — where process parameters far exceed available samples — such methods often fail to identify the **true root causes**.  
 
-To address this, we introduce **Intelligent Yield Management (IYM)** with the **Key-Variable Search Algorithm (KSA)**.  
+To address this, I introduce **Intelligent Yield Management (IYM)** with the **Key-Variable Search Algorithm (KSA)**.  
 
 <p align="center" style="background-color:white; display:inline-block; padding:10px;">
 <img width="1633" height="703" alt="螢幕擷取畫面 2025-09-19 144409" src="https://github.com/user-attachments/assets/3bb9d97e-9c58-4a52-bd06-f73afb41bbb8" />
