@@ -35,6 +35,9 @@ When **point-wise and pattern-wise anomalies occur simultaneously**, and the **d
 - Overlapping effects of both anomaly types lead to confusing and inconsistent signals.  
 - Traditional methods based on simple thresholding or historical pattern matching often fail completely.  
 
+In this case study, however, the focus is primarily on Pattern-wise Anomalies,
+as they are more strongly correlated with process variations and yield loss in the papermaking system.
+
 ---
 
 **Traditional** yield analysis mainly relies on **historical pattern matching**.  
@@ -44,31 +47,83 @@ To address this, I introduce **Intelligent Yield Management (IYM)** with the **K
 
 ---
 
-## Case Study 
+## Case Study  
+
+## Case Study  
 
 In real manufacturing cases, **it is often difficult to visually distinguish process differences**.  
-The figure below shows one of the **most obvious cases**, yet even here the variations are subtle and cannot be reliably judged by the naked eye.  
 
 
-To address this challenge, I applied **unsupervised clustering methods** to reveal hidden patterns in the data:  
-
-- **K-means Clustering & DBSCAN Clustering**  
+### Initial Attempt — Clustering Methods  
+After **preprocessing**, I first attempted **unsupervised clustering methods**, including **K-means** and **DBSCAN**, to automatically separate process variations.  
 
 <p align="center">
-<img width="800" height="500" alt="螢幕擷取畫面 2025-09-20 221608" src="https://github.com/user-attachments/assets/23a958b1-4029-4de0-9261-268d34ee0580" />
+<img width="800" height="500" alt="clustering_result" src="https://github.com/user-attachments/assets/23a958b1-4029-4de0-9261-268d34ee0580" />
 </p>  
 
 **Figure 3 & 4.** Results of K-means and DBSCAN clustering.  
 
-### Limitations of K-means:
-Assumes spherical clusters and performs poorly on non-linear boundaries.
-Highly sensitive to initial centroid selection, often leading to local optima.
-Requires pre-defined number of clusters (k), which is unknown in high-dimensional process data.
+**Limitations:**  
+- **K-means**: Assumes spherical clusters, sensitive to initialization, requires pre-defined k.  
+- **DBSCAN**: Sensitive to ε and minPts, struggles with varying density, suffers from the curse of dimensionality.  
 
-### Limitations of DBSCAN:
-Extremely sensitive to parameter settings (ε neighborhood size, minPts).
-Struggles with datasets of varying density, often misclassifying normal points as noise.
-In high-dimensional data, distance metrics become less meaningful (“curse of dimensionality”), leading to distorted clustering results.
+As a result, clustering alone was not sufficient to distinguish subtle anomalies.  
+
+---
+
+### Further Analysis — Fourier Transform (FT)  
+
+After exhausting various approaches without satisfactory results,  
+I decided to shift the analysis toward the **frequency domain**, starting with the **Fourier Transform (FT)**.  
+FT decomposes a signal into different frequency components, allowing us to analyze the **energy distribution across frequencies** rather than only the time-domain waveform.  
+
+<p align="center">
+<img width="800" alt="螢幕擷取畫面 2025-09-21 235127" src="https://github.com/user-attachments/assets/31c3ea3d-e665-4cc1-af77-310270b0431a" />
+</p>  
+
+**Figure 5.** Fourier Transform result — frequency components of the process data.  
+
+**Limitation:** In this figure, the blue line represents the original signal, while the red line is reconstructed from a selected frequency band after Fourier Transform. Although this highlights the low-frequency trend, in our case FT only provides a global frequency distribution and cannot indicate when anomalies occur. As a result, Fourier Transform alone does not offer meaningful progress for this study.  
+
+---
+
+### Next Step — Short-Time Fourier Transform (STFT)  
+
+To address the limitations of conventional Fourier Transform, I adopted the **Short-Time Fourier Transform (STFT)**.  
+STFT applies FT to short, overlapping segments of the signal, producing a **time–frequency representation**.  
+This allows us to not only identify which frequency components are present, but also observe how they evolve over time.  
+
+<p align="center">
+  <img width="800" alt="stft_example" src="https://github.com/user-attachments/assets/5eda7461-6e4f-4c4d-abbe-df1586aaf1fe" />
+</p>  
+
+**Figure 6.** STFT result — time–frequency representation revealing subtle variations.  
+
+---
+
+After testing multiple approaches, I ultimately chose **STFT** because it preserves both **time** and **frequency** information,  
+making it possible to track dynamic changes that other methods could not capture.  
+
+**Key advantages of STFT in this case study:**  
+- Conventional FT shows only the **global frequency distribution**, without indicating *when* anomalies occur.  
+- STFT clearly reveals the **time intervals** where anomalies emerge.  
+- This enables precise localization of problem points and supports the detection of subtle **pattern-wise anomalies**.  
+
+---
+
+The following two figures illustrate real cases in the papermaking process where STFT successfully detected actual problem points.  
+
+<p align="center">
+  <img width="850" alt="stft_case1" src="https://github.com/user-attachments/assets/36551946-3765-4d79-ae63-a9b3d074f3bd" />
+</p>  
+
+**Figure 7.** STFT-based detection of anomaly occurrence in time–frequency domain (Case 1).  
+
+<p align="center">
+  <img width="850" alt="stft_case2" src="https://github.com/user-attachments/assets/105fccca-2ec0-474a-a88d-afe058879fbd" />
+</p>  
+
+**Figure 8.** STFT-based detection of anomaly occurrence in time–frequency domain (Case 2).  
 
 
 ### IYM in the iFA System  
