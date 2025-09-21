@@ -15,6 +15,8 @@ One key challenge in yield analysis is **detecting anomalies in manufacturing da
   <img width="500" alt="point_anomaly_example" src="https://github.com/user-attachments/assets/fed0e3a8-69d8-44fa-b006-50f27e2489b7" />
 </p>  
 
+**Figure 1.** Case study example of a **point-wise anomaly**.  
+
 ---
 
 ### 2. Pattern-wise Anomaly  
@@ -25,6 +27,7 @@ One key challenge in yield analysis is **detecting anomalies in manufacturing da
   <img width="500" alt="pattern_anomaly_example" src="https://github.com/user-attachments/assets/c32fd472-482d-444a-ad6d-c550e7e0d658" />
 </p>  
 
+**Figure 2.** Case study example of a **pattern-wise anomaly**. 
 
 ### When Both Occur  
 When **point-wise and pattern-wise anomalies occur simultaneously**, and the **data quality is poor**, the situation becomes a true disaster.  
