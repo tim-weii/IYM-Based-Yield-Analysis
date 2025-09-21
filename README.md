@@ -1,28 +1,29 @@
-
 #  Intelligent Yield Management (IYM) — Key-Variable Search for Yield Loss Analysis  
+
 ## Background  
 
-In advanced manufacturing, **yield directly affects cost and competitiveness**.  
+In advanced manufacturing, **yield is a critical factor that directly impacts both cost and competitiveness**.  
+One key challenge in yield analysis is **detecting anomalies in manufacturing data**, which can generally be divided into two categories:  
 
+---
 
-In manufacturing data, anomalies can generally be divided into two categories:  
+### 1. Point-wise Anomaly  
+- A single data point that significantly deviates from its neighbors.  
+- Isolated and discontinuous, not following the normal pattern of the dataset.  
 
-1. **Point-wise Anomaly**  
-   - Refers to a single data point that significantly deviates from its neighbors.  
-   - Such anomalies are isolated and discontinuous, and do not follow the normal trend of the dataset.  
-   - Example:  
-   <p align="center">
-<img width="500" alt="螢幕擷取畫面 2025-09-21 225915" src="https://github.com/user-attachments/assets/fed0e3a8-69d8-44fa-b006-50f27e2489b7" />
-   </p>  
+<p align="center">
+  <img width="500" alt="point_anomaly_example" src="https://github.com/user-attachments/assets/fed0e3a8-69d8-44fa-b006-50f27e2489b7" />
+</p>  
 
-2. **Pattern-wise Anomaly**  
-   - Refers to a sequence of data points over a certain time interval that deviates from the expected overall pattern.  
-   - Unlike point anomalies, pattern anomalies reflect abnormal relationships or variations across multiple data points.  
-   - Typically continuous and span across a time window.  
-   - Example:  
-   <p align="center">
-<img width="500" alt="image" src="https://github.com/user-attachments/assets/c32fd472-482d-444a-ad6d-c550e7e0d658" />
-   </p>  
+---
+
+### 2. Pattern-wise Anomaly  
+- A sequence of data points within a time interval that deviates from the expected overall trend.  
+- Unlike point anomalies, pattern anomalies reflect abnormal **relationships** or **continuous variations** across multiple data points.  
+
+<p align="center">
+  <img width="500" alt="pattern_anomaly_example" src="https://github.com/user-attachments/assets/c32fd472-482d-444a-ad6d-c550e7e0d658" />
+</p>  
 
 ---
 
