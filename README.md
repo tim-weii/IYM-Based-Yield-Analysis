@@ -123,15 +123,19 @@ The following two figures illustrate real cases in the papermaking process where
 
 **Figure 8.** STFT-based detection of anomaly occurrence in time–frequency domain (Case 2).  
 
+---
 
-### IYM in the iFA System  
+### From STFT to IYM  
 
-<p align="center" style="background-color:white; display:inline-block; padding:10px;">
-  <img width="800" alt="iym_framework" src="https://github.com/user-attachments/assets/5eeda933-af05-4bbe-8982-5973fcff7816" />
-</p>
+While STFT alone already provides valuable insights,  
+the ultimate goal of this work is to **integrate it into the Intelligent Yield Management (IYM) framework**.  
 
-**Figure 2.** The position of **Intelligent Yield Management (IYM)** within the **iFA system**.  
-IYM serves as a data-driven module that integrates with production information flows to focus on yield-related analysis.  
+In the original IYM design, the **Key-Variable Search Algorithm (KSA)** serves as the core module for identifying root-cause variables.  
+In my approach, this module is replaced with the **STFT-based feature extraction and anomaly detection mechanism**,  
+allowing IYM to directly capture subtle, time–frequency anomalies and link them to yield loss.  
+
+This integration ensures that the proposed method is not only a standalone analysis,  
+but also a **functional component within the IYM framework**, enabling end-to-end yield management.
 
 ---
 
@@ -140,136 +144,40 @@ IYM serves as a data-driven module that integrates with production information f
 Traditional yield analysis mainly relies on **historical pattern matching**.  
 However, under **high-dimensional conditions (p ≫ n)** — where process parameters far exceed available samples — such methods often fail to identify the **true root causes**.  
 
-To address this, I introduce **Intelligent Yield Management (IYM)** with the **Key-Variable Search Algorithm (KSA)**.  
+To overcome this, I adopted **Intelligent Yield Management (IYM)**, originally built on the **Key-Variable Search Algorithm (KSA)**,  
+but in this work, the key search module was **replaced with STFT-based features**, allowing the system to directly capture subtle, time–frequency anomalies in process data.  
 
 <p align="center" style="background-color:white; display:inline-block; padding:10px;">
-<img width="1633" height="703" alt="螢幕擷取畫面 2025-09-19 144409" src="https://github.com/user-attachments/assets/3bb9d97e-9c58-4a52-bd06-f73afb41bbb8" />
+  <img width="1633" height="703" alt="iym_workflow" src="https://github.com/user-attachments/assets/3bb9d97e-9c58-4a52-bd06-f73afb41bbb8" />
 </p>
 
-
-**Figure 3.** Workflow of IYM — applying the Key-Variable Search Algorithm (KSA) to identify critical parameters for yield loss analysis.  
-
+**Figure 10.** Workflow of IYM — applying STFT-based features to identify critical parameters for yield loss analysis.  
 
 ---
 
-<img width="1548" height="1008" alt="image" src="https://github.com/user-attachments/assets/b95c51b0-858e-48df-91e1-c004f650b032" />
+### IYM in the iFA System  
 
-##  Methodology (KSA Framework)  
-The **KSA scheme** combines greedy search and sparse regression to identify critical process variables:  
+<p align="center" style="background-color:white; display:inline-block; padding:10px;">
+  <img width="800" alt="iym_framework" src="https://github.com/user-attachments/assets/5eeda933-af05-4bbe-8982-5973fcff7816" />
+</p>
+
+**Figure 9.** The position of **Intelligent Yield Management (IYM)** within the **iFA system**.  
+IYM serves as a data-driven module that integrates with production information flows to focus on yield-related analysis.  
+
+Within the iFA framework, all modules are **centrally managed and coordinated**.  
+This means that once IYM identifies potential yield issues, the system can automatically trigger corresponding responses —  
+such as alerting operators, adjusting process parameters, or initiating further root-cause analysis — ensuring that abnormalities are not only detected but also systematically addressed.
+
+---
+
+## Methodology (STFT-enhanced IYM Framework)  
 
 1. **Data Preprocessing**  
-   - Align production routes (XR), process parameters (XP), inline inspection data (y), and final yield (Y).  
-   - Normalize, clean, and organize batch/tool-level information.  
-
-2. **Key-Variable Search (KSA Module)**  
-   - In our approach, **Short-Time Fourier Transform (STFT)** is first applied to transform time-series signals into the time–frequency domain, allowing us to capture dynamic process patterns.  
-   - Instead of directly relying on traditional variable selection algorithms (e.g., TPOGA, ALASSO), STFT-based features are extracted to highlight critical variations in process behavior that may contribute to yield loss.  
-
+2. **STFT-based Feature Extraction**  
 3. **Reliance Index (RIK)**  
-   - Measures the confidence of identified parameters/features.  
-   - RIK > 0.7 = high confidence in the extracted factors.  
 
 ---
 
-##  Two-Phase Search Process  
-
-1. **Phase I — Suspicious Stage/Tool Identification**  
-   - Input: (Y, y, XR)  
-   - Output: Top-N suspicious tools/stages with RIK confidence scores.  
-
-2. **Phase II — Parameter Drill-Down**  
-   - Input: (Y, XP) for the selected stage.  
-   - Output: Key process parameters (e.g., coating speed, viscosity) with coefficient values & RIK scores.  
-
----
-
-##  Why ALASSO?  
-
-- **Handles p ≫ n:** Works in high-dimensional cases with limited defect samples.  
-- **Sparsity assumption:** Selects only the true root-cause subset.  
-- **Interpretability:** Keeps variable identity (vs PCA/PLS latent features).  
-- **Improved stability:** Reweighted coefficients → less bias & better handling of correlated variables.  
-
- Compared to black-box ML models, **ALASSO provides interpretable engineering insights**, essential for process improvement.  
-
----
-
-### Case Study: Paper Coating Defects (2023)
-
-After a series of data preprocessing, statistical testing (e.g., t-test), and applying the IYM framework with the **Key-Variable Search Algorithm (KSA)**, we were able to pinpoint suspicious variables that differentiate **Normal** from **Abnormal** coating results.
-
-The figure below illustrates one sample case.  
-- **Blue curve (Normal data)** shows the expected process trend over time.  
-- **Red curve (Abnormal data)** highlights the detected anomaly.  
-- The abnormal segment deviates significantly from the normal trend, confirming the **root-cause signal** that contributes to coating defects.  
-
-<p align="center">
-<img width="720" alt="case_abnormal_detection" src="https://github.com/user-attachments/assets/your_image_id_here" />
-</p>
-<p align="center">Fig. X. Example of Normal vs. Abnormal data after IYM + KSA analysis. The abnormal segment (red) is clearly separated and identified as problematic.</p>
-
-This demonstrates that the IYM + KSA approach not only narrows down the **critical sensors/variables** but also provides **visual evidence** of where abnormalities occur, enabling engineers to take corrective actions in production.
-
-
-##  Contributions  
-
-- Built an **IYM-based yield analysis pipeline**.  
-- Developed a **two-phase KSA workflow** (stage → parameter).  
-- Introduced **RIK index** for reliability assessment.  
-- Successfully applied to **TFT-LCD coating defect analysis**, revealing true process root causes.  
-
----
-
-##  Before vs After IYM  
-
-| Aspect            | Before IYM                  | After IYM (KSA Applied)        |
-|-------------------|-----------------------------|--------------------------------|
-| Defect complaints | 5 cases in 2023             | Reduced significantly          |
-| Root cause search | Manual, heuristic-based     | Automated via KSA (TPOGA + ALASSO) |
-| Interpretability  | Low (black-box / PCA-based) | High (variable-level coefficients) |
-| Reliability       | Not quantified              | RIK > 0.7 confidence scoring   |
-
----
-
-## 📊 Case Study: Coating Defects in Paper Manufacturing (2023)
-
-In this case study, we analyze **coating defects** in the paper manufacturing process.  
-Customer complaints showed a surge in coating-related issues in **2023 (5 cases)** compared to only **1 case in 2022**.  
-To investigate, we applied **Intelligent Yield Management (IYM)** with both **exploratory data analysis** and **statistical testing**.
-
----
-
-### 1) Exploratory Data Analysis (EDA)
-Production data was divided into **Normal (good)** and **Abnormal (defective)** groups.  
-Scatter plots, histograms with KDE, and boxplots were used to visualize differences.
-
-📷 **[Fig.1] Scatter / Histogram / Boxplot of Normal vs Abnormal Data**
-
-- Scatter plot: Values overlap heavily but some deviations are visible.  
-- Histogram: Abnormal data shows tighter clustering / shifts in distribution.  
-- Boxplot: Abnormal group median differs noticeably from Normal.  
-
----
-
-### 2) Statistical Testing (t-test)
-To validate observed differences, we applied **Student’s t-test** to each parameter.
-
-📋 **[Table 1] t-test results (parameters anonymized as XXX, YYY)**
-
-| col_name | statistic | p_value   | Significant (p<0.05) |
-|----------|-----------|-----------|-----------------------|
-| **XXX**  | 348.20    | 1.28E-77  | ✅ Yes |
-| **YYY**  | 2.02      | 0.154     | ❌ No  |
-
-**Interpretation**:  
-- **XXX** shows a highly significant difference (p ≈ 1.28E-77), strongly linked to coating defects.  
-- **YYY** shows no significant difference and can be excluded from further investigation.  
-
----
-
-### 3) Findings
-- Pure visual inspection can be misleading — statistical validation ensures more reliable results.  
-- **XXX** is a strong candidate parameter for further engineering validation (e.g., coating pressure, viscosity, bake curve).  
-- **YYY** can be deprioritized, saving time and analysis resources.  
-
----
+With STFT integrated into the IYM framework,  
+we are able to **pinpoint the true root-cause variables** behind yield loss,  
+providing interpretable insights for process engineers and enabling data-driven corrective actions.  
