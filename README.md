@@ -25,6 +25,13 @@ One key challenge in yield analysis is **detecting anomalies in manufacturing da
   <img width="500" alt="pattern_anomaly_example" src="https://github.com/user-attachments/assets/c32fd472-482d-444a-ad6d-c550e7e0d658" />
 </p>  
 
+
+### When Both Occur  
+When **point-wise and pattern-wise anomalies occur simultaneously**, and the **data quality is poor**, the situation becomes a true disaster.  
+- Spurious noise makes it harder to distinguish real anomalies from false alarms.  
+- Overlapping effects of both anomaly types lead to confusing and inconsistent signals.  
+- Traditional methods based on simple thresholding or historical pattern matching often fail completely.  
+
 ---
 
 Traditional yield analysis mainly relies on **historical pattern matching**.  
@@ -39,16 +46,6 @@ To address this, I introduce **Intelligent Yield Management (IYM)** with the **K
 In real manufacturing cases, **it is often difficult to visually distinguish process differences**.  
 The figure below shows one of the **most obvious cases**, yet even here the variations are subtle and cannot be reliably judged by the naked eye.  
 
----
-
-<p align="center">
-  <img width="300" height="150" alt="image" src="https://github.com/user-attachments/assets/838018e0-8d1d-45ab-9970-fab51cb944b1" />
-
-</p>
-
-**Figure 2.** Raw process data — this example was deliberately selected as one of the clearest cases, with problematic regions highlighted in red. Even so, proper classification still requires algorithmic analysis rather than visual inspection alone.
-
----
 
 To address this challenge, I applied **unsupervised clustering methods** to reveal hidden patterns in the data:  
 
