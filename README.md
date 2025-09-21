@@ -1,4 +1,4 @@
-#  Intelligent Yield Management (IYM) — Key-Variable Search for Yield Loss Analysis  
+#  Intelligent Yield Management (IYM) — Key-Variable Search with STFT 
 
 ## Background  
 
