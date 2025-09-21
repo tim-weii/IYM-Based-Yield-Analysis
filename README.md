@@ -49,8 +49,6 @@ To address this, I introduce **Intelligent Yield Management (IYM)** with the **K
 
 ## Case Study  
 
-## Case Study  
-
 In real manufacturing cases, **it is often difficult to visually distinguish process differences**.  
 
 
