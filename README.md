@@ -37,7 +37,7 @@ When **point-wise and pattern-wise anomalies occur simultaneously**, and the **d
 
 ---
 
-Traditional yield analysis mainly relies on **historical pattern matching**.  
+**Traditional** yield analysis mainly relies on **historical pattern matching**.  
 However, under **high-dimensional conditions (p ≫ n)** — where process parameters far exceed available samples — such methods often fail to identify the **true root causes**.  
 
 To address this, I introduce **Intelligent Yield Management (IYM)** with the **Key-Variable Search Algorithm (KSA)**.  
