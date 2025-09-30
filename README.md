@@ -1,5 +1,11 @@
 #  Intelligent Yield Management (IYM) — Key-Variable Search with STFT 
 
+[![Python](https://img.shields.io/badge/Python-3.10-blue?logo=python)](https://www.python.org/) 
+[![Flask](https://img.shields.io/badge/Flask-Backend-lightgrey?logo=flask)](https://flask.palletsprojects.com/) 
+[![React](https://img.shields.io/badge/React-Frontend-61DAFB?logo=react&logoColor=white)](https://react.dev/) 
+[![MySQL](https://img.shields.io/badge/MySQL-8.0-blue?logo=mysql)](https://www.mysql.com/) 
+[![SciPy](https://img.shields.io/badge/SciPy-Signal%20Processing-8CAAE6?logo=scipy&logoColor=white)](https://scipy.org/) 
+
 ## Background  
 
 In advanced manufacturing, **yield is a critical factor that directly impacts both cost and competitiveness**.  
